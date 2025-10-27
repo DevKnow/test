@@ -271,8 +271,12 @@ dk
 
 </div>
 </body>
-</html>
-
-<script>
-  window.parent.postMessage({height: document.body.scrollHeight}, '*');
+  <script>
+  function sendHeight() {
+      var height = document.body.scrollHeight;
+      window.parent.postMessage({height: height}, '*');
+  }
+  window.addEventListener('load', sendHeight);
+  setTimeout(sendHeight, 500);
   </script>
+  </html>
